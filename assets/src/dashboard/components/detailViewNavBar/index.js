@@ -89,7 +89,7 @@ export function DetailViewNavBar({ handleCta, handleBookmarkClick, ctaText }) {
         {handleBookmarkClick && (
           <BookmarkToggle onClick={handleBookmarkClick} />
         )}
-        <CapitalizedButton type={BUTTON_TYPES.PRIMARY} onClick={handleCta}>
+        <CapitalizedButton type={BUTTON_TYPES.CTA} onClick={handleCta}>
           {ctaText}
         </CapitalizedButton>
       </Container>
