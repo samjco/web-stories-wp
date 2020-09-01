@@ -232,4 +232,16 @@ class Database_Upgrader extends \WP_UnitTestCase {
 		$this->assertSame( 123, $active_publisher_logo );
 	}
 
+	/**
+	 * @group ms-required
+	 */
+	public function test_init_sets_missing_options_multisite() {
+		$object = new \Google\Web_Stories\Database_Upgrader();
+
+		$blog_id = $this->factory->blog->create();
+		switch_to_blog( $blog_id );
+		$this->assertSame( WEBSTORIES_DB_VERSION, get_option( $object::OPTION ) );
+		$this->assertSame( '0.0.0', get_option( $object::PREVIOUS_OPTION ) );
+		restore_current_blog();
+	}
 }
